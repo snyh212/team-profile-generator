@@ -1,7 +1,6 @@
 const generateTeam = (team) => {
     console.log(team);
 
-
     for (let i=0; i<team.length; i++){
         if (team[i].getRole() === "Manager") {
             generateManager(team[i]);
@@ -12,21 +11,23 @@ const generateTeam = (team) => {
         if (team[i].getRole() === "Intern") {
             generateIntern(team[i]);
         }
-        return html.join('');
 }
+return html.join('');
 }
+
 let html = [];
+
 const generateManager = Manager => {
     console.log(Manager);
     let managerHtml = `
     <div class="card" style="width: 18rem;">
         <div class="card-header">${Manager.name}<br/>
-            <i class="fas fa-mug-hot"></i>Manager
+            Manager
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item>ID: ${Manager.id}</li>
-            <li class="list-group-item>Email: <span id=email"><a href="mailto:${Manager.email}">${Manager.email}</li>
-            <li class="list-group-item>Office Number: ${Manager.officeNumber}</li>
+            <li class="list-group-item">ID: ${Manager.id}</li>
+            <li class="list-group-item">Email: <span id="email"><a href="mailto:${Manager.email}">${Manager.email}</a></span></li>
+            <li class="list-group-item">Office Number: ${Manager.officeNumber}</li>
         </ul>
     </div>
         `;
@@ -38,12 +39,12 @@ const generateEngineer = Engineer => {
     let engineerHtml = `
     <div class="card" style="width: 18rem;">
         <div class="card-header">${Engineer.name}<br/>
-            <i class="fas fa-glasses"></i>Engineer
+            Engineer
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item>ID: ${Engineer.id}</li>
-            <li class="list-group-item>Email: <span id=email"><a href="mailto:${Engineer.email}">${Engineer.email}</li>
-            <li class="list-group-item>Github Username: <a target="_blank" href="https://github.com/${Engineer.githubUsername}">${Engineer.githubUsername}</a></li>
+            <li class="list-group-item">ID: ${Engineer.id}</li>
+            <li class="list-group-item">Email: <span id="email"><a href="mailto:${Engineer.email}">${Engineer.email}</a></span></li>
+            <li class="list-group-item">Github Username: <a target="_blank" href="https://github.com/${Engineer.github}">${Engineer.github}</a></li>
         </ul>
     </div>
         `;
@@ -55,12 +56,12 @@ const generateIntern = Intern => {
     let internHtml = `
     <div class="card" style="width: 18rem;">
         <div class="card-header">${Intern.name}<br/>
-            <i class="fas fa-user-graduate"></i>Intern
+            Intern
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item>ID: ${Intern.id}</li>
-            <li class="list-group-item>Email: <span id=email"><a href="mailto:${Intern.email}">${Intern.email}</li>
-            <li class="list-group-item>School: ${Intern.school}</li>
+            <li class="list-group-item">ID: ${Intern.id}</li>
+            <li class="list-group-item">Email: <span id="email"><a href="mailto:${Intern.email}">${Intern.email}</a></span></li>
+            <li class="list-group-item">School: ${Intern.school}</li>
         </ul>
     </div>
         `;

@@ -78,7 +78,7 @@ const questions = async () => {
         .prompt([
             {
                 type: "input",
-                message: "What is yschool are you enrolled in?",
+                message: "What school are you enrolled in?",
                 name: "school",
             },
         ])

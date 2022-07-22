@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 
-
-const Employee = require("./lib/employee");
 const manager = require("/manager");
 const engineer = require("/engineer");
 const intern = require("/intern");
@@ -13,12 +11,6 @@ const answerData = [];
 const questions = async () => {
     const answers = await inquirer
     .prompt([
-        {
-            type: "list",
-            message: "What is your role?",
-            name: "role",
-            choices: ["Manager", "Engineer", "Intern"]
-        },
         {
             type: "input",
             message: "What is your name?",
@@ -33,6 +25,12 @@ const questions = async () => {
             type: "input",
             message: "What is your E-mail address?",
             name: "email",
+        },
+        {
+            type: "list",
+            message: "What is your role?",
+            name: "role",
+            choices: ["Manager", "Engineer", "Intern"]
         },
     ])
     if (answers.role === "Manager") {

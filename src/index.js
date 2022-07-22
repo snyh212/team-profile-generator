@@ -2,10 +2,15 @@ const generateTeam = (team) => {
     console.log(team);
     const html = [];
 
-    
     for (let i=0; i<team.length; i++){
         if (team[i].getRole() === "Manager") {
             generateManager(team[i]);
+        }
+        if (team[i].getRole() === "Engineer") {
+            generateEngineer(team[i]);
+        }
+        if (team[i].getRole() === "Intern") {
+            generateIntern(team[i]);
         }
         return html.join('');
 }
@@ -43,6 +48,23 @@ const generateEngineer = Engineer => {
     </div>
         `;
         html.push(engineerHtml);
+}
+
+const generateIntern = Intern => {
+    console.log(Intern);
+    let internHtml = `
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">${Intern.name}<br/>
+            <i class="fas fa-user-graduate"></i>Intern
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item>ID: ${Intern.id}</li>
+            <li class="list-group-item>Email: <span id=email"><a href="mailto:${Intern.email}">${Intern.email}</li>
+            <li class="list-group-item>School: ${Intern.school}</li>
+        </ul>
+    </div>
+        `;
+        html.push(internHtml);
 }
 
 

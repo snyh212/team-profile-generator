@@ -5,6 +5,11 @@ const Employee = require("./lib/employee")
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const Team = require("./src/index");
+
+const path = require('path');
+const OUTPUT_DIR = path.resolve(__dirname, "dist");
+const outputPath = path.join(OUTPUT_DIR, "team.html")
 
 //variable to hold answer data
 const answerData = [];
@@ -100,7 +105,7 @@ async function promptQuestions() {
         }
     ])
     if (addEmployeeAns.addEmployee === 'Add Employee'){
-        return promptQuestions()
+        return promptQuestions();
     }
     return createTeam()
 }
@@ -108,8 +113,11 @@ async function promptQuestions() {
 promptQuestions();
 
 function createTeam() {
-    console.log("new member", answerData)
-    fs.writeFileSync("./dist/index.html", generateTeam(answerData), "utf-8")
+    console.log("new members", answerData)
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, generateTeam(answerData), "utf-8")
 };
 
 module.exports = answerData;

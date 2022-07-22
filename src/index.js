@@ -20,11 +20,11 @@ let html = [];
 const generateManager = Manager => {
     console.log(Manager);
     let managerHtml = `
-    <div class="card col">
-        <div class="card-header">${Manager.name}<br/>
+    <div class="card">
+        <div class="card-header bg-primary text-white">${Manager.name}<br/>
             Manager
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="card-body list-group list-group-flush">
             <li class="list-group-item">ID: ${Manager.id}</li>
             <li class="list-group-item">Email: <span id="email"><a href="mailto:${Manager.email}">${Manager.email}</a></span></li>
             <li class="list-group-item">Office Number: ${Manager.officeNumber}</li>
@@ -37,11 +37,11 @@ const generateManager = Manager => {
 const generateEngineer = Engineer => {
     console.log(Engineer);
     let engineerHtml = `
-    <div class="card col">
-        <div class="card-header">${Engineer.name}<br/>
+    <div class="card">
+        <div class="card-header bg-primary text-white">${Engineer.name}<br/>
             Engineer
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="card-body list-group list-group-flush">
             <li class="list-group-item">ID: ${Engineer.id}</li>
             <li class="list-group-item">Email: <span id="email"><a href="mailto:${Engineer.email}">${Engineer.email}</a></span></li>
             <li class="list-group-item">Github Username: <a target="_blank" href="https://github.com/${Engineer.github}">${Engineer.github}</a></li>
@@ -54,11 +54,11 @@ const generateEngineer = Engineer => {
 const generateIntern = Intern => {
     console.log(Intern);
     let internHtml = `
-    <div class="card col">
-        <div class="card-header">${Intern.name}<br/>
+    <div class="card">
+        <div class="card-header bg-primary text-white">${Intern.name}<br/>
             Intern
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="card-body list-group list-group-flush">
             <li class="list-group-item">ID: ${Intern.id}</li>
             <li class="list-group-item">Email: <span id="email"><a href="mailto:${Intern.email}">${Intern.email}</a></span></li>
             <li class="list-group-item">School: ${Intern.school}</li>
@@ -84,13 +84,13 @@ module.exports = team => {
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 jumbotron mb-3 team-heading">
+                <div class="col-12 jumbotron text-white bg-danger mb-3 team-heading">
                     <h1 class="text-center">My Team</h1>
                 </div>
             </div>
         </div>
 
-        <main class="container-fluid"><div class"row"> ${generateTeam(team)} </div></main>
+        <main class="container"><div class="card-columns"> ${generateTeam(team)} </div></main>
 
     </body>
     

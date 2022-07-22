@@ -1,6 +1,6 @@
 const generateTeam = (team) => {
     console.log(team);
-    const html = [];
+
 
     for (let i=0; i<team.length; i++){
         if (team[i].getRole() === "Manager") {
@@ -15,7 +15,7 @@ const generateTeam = (team) => {
         return html.join('');
 }
 }
-
+let html = [];
 const generateManager = Manager => {
     console.log(Manager);
     let managerHtml = `

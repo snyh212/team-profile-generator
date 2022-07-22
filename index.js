@@ -5,7 +5,7 @@ const Employee = require("./lib/employee")
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const Team = require("./src/index");
+const team = require("./src/index");
 
 const path = require('path');
 const OUTPUT_DIR = path.resolve(__dirname, "dist");
@@ -117,7 +117,7 @@ function createTeam() {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFileSync(outputPath, generateTeam(answerData), "utf-8")
+    fs.writeFileSync(outputPath, team(answerData), "utf-8")
 };
 
 module.exports = answerData;

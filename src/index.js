@@ -20,7 +20,7 @@ let html = [];
 const generateManager = Manager => {
     console.log(Manager);
     let managerHtml = `
-    <div class="card" style="width: 18rem;">
+    <div class="card col">
         <div class="card-header">${Manager.name}<br/>
             Manager
         </div>
@@ -37,7 +37,7 @@ const generateManager = Manager => {
 const generateEngineer = Engineer => {
     console.log(Engineer);
     let engineerHtml = `
-    <div class="card" style="width: 18rem;">
+    <div class="card col">
         <div class="card-header">${Engineer.name}<br/>
             Engineer
         </div>
@@ -54,7 +54,7 @@ const generateEngineer = Engineer => {
 const generateIntern = Intern => {
     console.log(Intern);
     let internHtml = `
-    <div class="card" style="width: 18rem;">
+    <div class="card col">
         <div class="card-header">${Intern.name}<br/>
             Intern
         </div>
@@ -77,7 +77,6 @@ module.exports = team => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
         <title>Team Employees</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
@@ -91,7 +90,7 @@ module.exports = team => {
             </div>
         </div>
 
-        <main> ${generateTeam(team)} </main>
+        <main class="container-fluid"><div class"row"> ${generateTeam(team)} </div></main>
 
     </body>
     

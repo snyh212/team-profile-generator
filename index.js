@@ -15,23 +15,23 @@ const questions = async () => {
     .prompt([
         {
             type: "list",
-            message: "what is your role?",
+            message: "What is your role?",
             name: "role",
             choices: ["Manager", "Engineer", "Intern"]
         },
         {
             type: "input",
-            message: "what is your name?",
+            message: "What is your name?",
             name: "name",
         },
         {
             type: "input",
-            message: "what is your employee ID numer?",
+            message: "What is your employee ID number?",
             name: "id",
         },
         {
             type: "input",
-            message: "what is your E-mail address?",
+            message: "What is your E-mail address?",
             name: "email",
         },
     ])
@@ -40,10 +40,51 @@ const questions = async () => {
         .prompt([
             {
                 type: "input",
-                message: "what is your office numer?",
+                message: "What is your office number?",
                 name: "office",
             },
         ])
+        const newManager = new Manager(
+            answers.name,
+            answers.id,
+            answers.email,
+            managerAnswers.office,
+        );
+        answerData.push(newManager);
+
+    }else if (answers.role === "Engineer") {
+        const engineerAnswers = await inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is your GitHub username?",
+                name: "github",
+            },
+        ])
+        const newEngineer = new Engineer(
+            answers.name,
+            answers.id,
+            answers.email,
+            engineerAnswers.github,
+        );
+        answerData.push(newEngineer);
+
+    }else if (answers.role === "Intern") {
+        const internAnswers = await inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is yschool are you enrolled in?",
+                name: "school",
+            },
+        ])
+        const newIntern = new Intern(
+            answers.name,
+            answers.id,
+            answers.email,
+            internAnswers.school,
+        );
+        answerData.push(newIntern);
     }
 }
 

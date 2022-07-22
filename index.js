@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 
-const manager = require("/manager");
-const engineer = require("/engineer");
-const intern = require("/intern");
+const Employee = require("./lib/employee")
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 
 //variable to hold answer data
 const answerData = [];
@@ -84,6 +85,31 @@ const questions = async () => {
         );
         answerData.push(newIntern);
     }
+};
+
+async function promptQuestions() {
+    await questions()
+
+    const addEmployeeAns = await inquirer
+    .prompt([
+        {
+            type: "list",
+            message: "What would you like to do next?",
+            choices: ['Add Employee', 'Create Team'],
+            name: "addEmployee",
+        }
+    ])
+    if (addEmployeeAns.addEmployee === 'Add Employee'){
+        return promptQuestions()
+    }
+    return createTeam()
 }
 
-employee.create();
+promptQuestions();
+
+function createTeam() {
+    console.log("new member", answerData)
+    fs.writeFileSync("./dist/index.html", generateTeam(answerData), "utf-8")
+};
+
+module.exports = answerData;

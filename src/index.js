@@ -2,29 +2,49 @@ const generateTeam = (team) => {
     console.log(team);
     const html = [];
 
-    const generateManager = Manager => {
-        console.log(Manager);
-        let managerHtml = `
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">${Manager.name}<br/>
-                <i class="fas fa-mug-hot"></i>Manager
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item>ID: ${Manager.id}</li>
-                <li class="list-group-item>Email: <span id=email"><a href="mailto:${Manager.email}">${Manager.email}</li>
-                <li class="list-group-item>Office Number: ${Manager.officeNumber}</li>
-        </div>
-            `;
-            html.push(managerHtml);
-    }
+    
+    for (let i=0; i<team.length; i++){
+        if (team[i].getRole() === "Manager") {
+            generateManager(team[i]);
+        }
+        return html.join('');
+}
 }
 
-for (let i=0; i<team.length; i++){
-    if (team[i].getRole() === "Manager") {
-        generateManager(team[i]);
-    }
-    return html.join('');
+const generateManager = Manager => {
+    console.log(Manager);
+    let managerHtml = `
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">${Manager.name}<br/>
+            <i class="fas fa-mug-hot"></i>Manager
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item>ID: ${Manager.id}</li>
+            <li class="list-group-item>Email: <span id=email"><a href="mailto:${Manager.email}">${Manager.email}</li>
+            <li class="list-group-item>Office Number: ${Manager.officeNumber}</li>
+        </ul>
+    </div>
+        `;
+        html.push(managerHtml);
 }
+
+const generateEngineer = Engineer => {
+    console.log(Engineer);
+    let engineerHtml = `
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">${Engineer.name}<br/>
+            <i class="fas fa-glasses"></i>Engineer
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item>ID: ${Engineer.id}</li>
+            <li class="list-group-item>Email: <span id=email"><a href="mailto:${Engineer.email}">${Engineer.email}</li>
+            <li class="list-group-item>Github Username: <a target="_blank" href="https://github.com/${Engineer.githubUsername}">${Engineer.githubUsername}</a></li>
+        </ul>
+    </div>
+        `;
+        html.push(engineerHtml);
+}
+
 
 module.exports = team => {
     return `
